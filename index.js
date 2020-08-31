@@ -11,8 +11,8 @@ async function geraUsuario () {
         });
 
         for(let i=1; i<data.results.length;i++) {
-            fs.createWriteStream("usuarios.csv",{flags: "a"})
-            .write (`${data.results[i].name.first}, 
+            const mostraUsuario = fs.createWriteStream("usuarios.csv",{flags: "a"})
+            mostraUsuario.write (`${data.results[i].name.first}, 
                      ${data.results[i].name.last},
                      ${data.results[i].email}, 
                      ${data.results[i].dob.age}, 
