@@ -12,13 +12,7 @@ async function geraUsuario () {
 
         for(let i=1; i<data.results.length;i++) {
             const mostraUsuario = fs.createWriteStream("dados/usuarios.csv",{flags: "a"})
-            mostraUsuario.write (`${data.results[i].name.first}, 
-                     ${data.results[i].name.last},
-                     ${data.results[i].email}, 
-                     ${data.results[i].dob.age}, 
-                     ${data.results[i].gender}, 
-                     ${data.results[i].login.username}
-                     ${data.results[i].login.password}\n`);
+            mostraUsuario.write (`${data.results[i].name.first}, ${data.results[i].name.last}, ${data.results[i].email}, ${data.results[i].dob.age}, ${data.results[i].gender}, ${data.results[i].login.username}, ${data.results[i].login.password}\n`);
         }
         console.log("Requisição realizada")    
     } 
