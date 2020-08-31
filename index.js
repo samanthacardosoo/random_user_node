@@ -6,12 +6,12 @@ async function geraUsuario () {
     if (requisicao.ok) {
         const data = await requisicao.json();
 
-        fs.writeFile('usuarios.csv',(`primeiro_nome,sobrenome,email,idade,genero,username,password\n`), 'utf8', (err) => {
+        fs.writeFile('dados/usuarios.csv',(`primeiro_nome,sobrenome,email,idade,genero,username,password\n`), 'utf8', (err) => {
             if (err) throw err;    
         });
 
         for(let i=1; i<data.results.length;i++) {
-            const mostraUsuario = fs.createWriteStream("usuarios.csv",{flags: "a"})
+            const mostraUsuario = fs.createWriteStream("dados/usuarios.csv",{flags: "a"})
             mostraUsuario.write (`${data.results[i].name.first}, 
                      ${data.results[i].name.last},
                      ${data.results[i].email}, 
